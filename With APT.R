@@ -1,16 +1,3 @@
-# Projekt 1 #
-
-#In this particular project I will be testing the performance of the stock company
-#with the 'INGR' ticker which is responsible for harvest and production of bread.
-#Keeping that in mind, I will need the data of the prices of stocks, however I only
-#have the data related to price and not with dividend included in it.
-#Therefore I will be calculating the proper numbers and I will also provide a model
-#that will test if the values of the stocks are overvaluated or undervaluated.
-#The final performance measure will rely on dividend amount which I'll be calculating.
-
-#I think it's a very vital problem due to current war circumstances
-#and potential food supply shortages
-
 #First of all, I will be downloading some common libraries. One is uncommon
 #(in this case for example zoo which is responsible for date manipulation)
 library(ggplot2)
@@ -79,8 +66,8 @@ for(x in 1:(62*62))
   
 }
 
-#APT = alfa + b1*inflacja PPI + b2*zad³u¿enie w firmie + b3*zad³uzenie krotkoterminowe
-# + b4*indeks gie³dowy + b5*stopa dywidendy + b6*stopy procentowe + b7*ceny indeksu zbo¿oweg
+#APT = alfa + b1*inflacja PPI + b2*zadÂ³uÂ¿enie w firmie + b3*zadÂ³uzenie krotkoterminowe
+# + b4*indeks gieÂ³dowy + b5*stopa dywidendy + b6*stopy procentowe + b7*ceny indeksu zboÂ¿oweg
 #I'm loading a variables to APT model. APT model is the more practical
 #version of CAPM. It also check if the stocks are properly valuated, but only
 #in the context of the stock markets conditions.
