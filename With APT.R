@@ -42,7 +42,7 @@ z <- as.Date(y, format="%Y-%m-%d", origin = "2006-03-31")
 Date <- z
 
 
-# I used many other data manipulation techniques. One of these techniques is linear interpolation.
+# I used many other data manipulation techniques. One of these techniques is linear interpolation. 
 #It is a method to estimate the value of NA obs, by using a regression lines within.
 
 To_reg <- data.frame(Date, To_reg[, 2:6])
