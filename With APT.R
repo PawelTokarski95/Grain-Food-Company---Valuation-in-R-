@@ -92,15 +92,22 @@ Shortterm_debt <- To_APT[,6]
 APT <- lm(formula = result_DIV ~ Risk_free_rate+PPI+Interest_rates+Longterm_debt+Shortterm_debt)
 summary(APT)
 
-
+# HYPERLINK TO MODEL1 #
+#  https://github.com/PawelTokarski95/Grain-Food-Company---Valuation-in-R-/blob/main/APT_Regression_1.png
 
 #In the previous regression, I noticed that the second independent variable (PPI) was statistically insignificant, so I omitted it.
 APT_2 <- lm(formula = result_DIV ~ Risk_free_rate+Interest_rates+Longterm_debt+Shortterm_debt)
 summary(APT_2)
 
+# HYPERLINK TO MODEL2 #
+#  https://github.com/PawelTokarski95/Grain-Food-Company---Valuation-in-R-/blob/main/APT_Regression_2.png
 
 
 bptest(APT_2)
+# HYPERLINK TO BREUSH-PAGAN TEST #
+#  https://github.com/PawelTokarski95/Grain-Food-Company---Valuation-in-R-/blob/main/BP_test.png
+
+
 #The performance of the model is quite good in terms of R^2. It also does not imply the problem of heteroscedasticity (as shown in the Breusch-Pagan test with a p-value of 0.44)
 #Additionally, I do not have to worry about the issue of autocorrelation because it is not a predictive model, but rather only shows certain dependencies over a period of time.
 
@@ -118,6 +125,11 @@ colnames(as.Date(Date)) <- c('Date')
 
 
 ggplot() + geom_line(data = Dividend_Amount, mapping= aes(y=Dividend_Amount, x=Date)) + geom_smooth(data=DIV_Reg_FIT, mapping = aes(y=DIV_Reg_FIT, x=Date))
+
+
+# HYPERLINK TO THE PLOT #
+#  https://github.com/PawelTokarski95/Grain-Food-Company---Valuation-in-R-/blob/main/APT_PLOT_R.png
+
 
 #I have also created a loop to check how many observations are "under" the model values and how many are "over" them in order to show the frequency of this up-down cycle.
 To_var_over = 0
@@ -142,7 +154,8 @@ cat("Number of observations over model values:", num_over, "\n")
 cat("Number of observations under model values:", num_under, "\n")
 
 
-#It appears that the time periods in which the dividends were above the model prices were almost the same. I calculated the variability rate and found that it was relatively high, at 76%. 
+#It appears that the time periods in which the dividends were above the model prices were almost the same. 
+#I calculated the variability rate and found that it was relatively high, at 76%. 
 
 var(Dividend_Amount[,1])^(1/2)/mean(Dividend_Amount[,1])
 
