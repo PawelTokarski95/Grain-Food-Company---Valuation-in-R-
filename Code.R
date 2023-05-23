@@ -1,4 +1,4 @@
-# Load required libraries
+# I am loading required libraries
 library(ggplot2)
 library(stats)
 library(zoo)
@@ -7,18 +7,17 @@ library(imputeTS)
 library(lmtest)
 library(scales)
 
-# Read in share price data and change date format
+# I am reading share price data and change date format
 Share_INGR <- read.csv('C:/.../Share_Ingr.csv', sep = ';', header = TRUE)
 Share_INGR$Date <- as.Date(strptime(as.character(Share_INGR$Date), format = "%d.%m.%Y"), format = "%Y-%m-%d", origin = "2006-03-31")
 
-# Read in dividend data and change date format
 Div_INGR <- read.csv("C:/.../Div_INGR.csv", sep = ';', header = TRUE)
 Div_INGR <- apply(Div_INGR, 2, rev)
 Div_INGR <- as.data.frame(Div_INGR)
 Div_INGR$Date <- as.Date(strptime(as.character(Div_INGR$Date), format = '%m/%d/%y'), format = "%Y-%m-%d")
 Div_INGR$Dividend <- as.numeric(Div_INGR$Dividend)
 
-# Multiply matrices and extract values from diagonal matrix
+# I am multiplying matrices and extracting values from diagonal matrix
 rDIV <- as.matrix(Div_INGR$Dividend) %*% t(as.matrix(Share_INGR$Price))
 diagonal_matrix <- diag(1, 62, 62)
 result_DIV <- 0
